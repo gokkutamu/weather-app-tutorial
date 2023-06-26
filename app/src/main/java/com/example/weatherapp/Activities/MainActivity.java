@@ -1,9 +1,11 @@
 package com.example.weatherapp.Activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
 
 import com.example.weatherapp.Adapter.HourlyAdapter;
 import com.example.weatherapp.R;
@@ -21,6 +23,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initRecyclerView();
+        setVariable();
+    }
+
+    private void setVariable() {
+        TextView textNext = findViewById(R.id.textNext);
+        textNext.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, TomorrowActivity.class)));
     }
 
     private void initRecyclerView() {
